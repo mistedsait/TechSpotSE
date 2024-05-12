@@ -1,0 +1,11 @@
+{
+    "product":[{
+        "id": 1,
+        "image": "../images/White-titanium-iPhone-15-Pro.png",
+        "image2": "../images/Blue-Titanium-iPhone-15-Pro.png",
+        "image3": "../images/Black-Titanium-iPhone-15-Pro.png",
+        "image4": "../images/Natural-Titanium-iPhone-15-Pro.png"
+
+    }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "phone":[{
+        "id": 1,
+        "name": "Iphone X",
+        "title": "iphone1",
+        "image": "../images/iphx.png",
+        "price": "450$"
+        
+
+    },{
+        "id": 2,
+        "name": "Iphone 15",
+        "title": "iphone15",
+        "image": "../images/Black-Titanium-Iphone-15-Pro.png",
+        "price": "999$"
+    },{
+        "id": 3,
+        "name": "Iphone 15",
+        "title": "iphone15",
+        "image": "../images/Black-Titanium-Iphone-15-Pro.png",
+        "price": "999$"
+    },{
+        "id": 4,
+        "name": "Iphone Case",
+        "title": "iphonecase",
+        "image": "../images/caseiph3.png",
+        "price": "20$"
+    }
+    
+
+    
+    
+    
+    ]
+}
