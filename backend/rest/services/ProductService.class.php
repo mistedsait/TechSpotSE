@@ -23,4 +23,7 @@ class ProductService {
     {
         $this->product_dao->update_product($product_id, $product);
     }
+    public function getProductById($id) {
+        return $this->product_dao->getProductById($id);
+    }
 }

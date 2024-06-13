@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,7 +151,7 @@
                     <label for="product-filter" class="form-label">Filter:</label>
                 </div>
                 <div class="col-md-6 col-lg-8">
-                    <select id="product-filter" class="form-select">
+                    <select id="product-filter" class="form-select product-filter">
                         <option value="all">All</option>
                         <option value="phones">Phones</option>
                         <option value="accessories">Accessories</option>
@@ -208,12 +208,123 @@
                     </div>
                 </div>
                 <script src="js/jquery-1.11.0.min.js"></script>
+                <script src="../utils/rest_client.js"></script>
+                <script src="../utils/utils.js"></script>
+                <script src="../utils/constants.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
                 <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
                 <script type="text/javascript" src="js/plugins.js"></script>
                 <script type="text/javascript" src="js/script.js"></script>
-                <script type="text/javascript" src="../ajax/phonesinfo.js"></script>
-                <script>loadPhones()</script>
+                <script type="text/javascript" src="../TechSpot/ajax/phonesinfo.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+                <script>
+                    
+    
+const el = document.querySelector('#product-filter')
+console.log({el})
+
+
+el.addEventListener('change', function() {
+const selectedCategory = this.value;
+filterProducts(selectedCategory);
+});
+
+
+function filterProducts(category) {
+const productList = document.querySelector('.container .row');
+productList.innerHTML = ''; 
+
+fetch(Constants.get_api_base_url() + `products?category=${category}`)
+    .then(response => response.json())
+    .then(products => {
+        products.forEach(product => {  
+            productList.innerHTML += `
+                <div class="col mb-5" style="width:280px; height: 515px;">
+                    <div class="card h-100" style="width:280px; height: 515px;">
+                        <a href="product.html?product_id=${product.product_id}">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="${product.image}" alt="${product.name}" style="width:270px; height: 250px;" />
+                        </a>
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">${product.name}</h5>
+                                <!-- Product price-->
+                                ${product.price}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <a class="btn btn-outline-dark mt-auto add-to-cart" href="#" data-product-id="${product.product_id}">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Add event listeners for the "Add to cart" buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const productId = this.getAttribute('data-product-id');
+                addToCart(productId);
+            });
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching products:', error);
+    });
+}
+
+function addToCart(productId) {
+const token = localStorage.getItem('user');
+
+fetch(Constants.get_api_base_url() + 'add-to-cart', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authentication': `${token}`
+    },
+    body: JSON.stringify({ product_id: productId, quantity: 1 })
+})
+.then(response => response.json())
+.then(data => {
+    if (data.error) {
+        console.error('Error adding to cart:', data.error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'There was an error adding the product to your cart.'
+        });
+    } else {
+        console.log('Product added to cart:', data);
+        Swal.fire({
+            icon: 'success',
+            title: 'Added to Cart',
+            text: 'The product has been added to your cart!'
+        });
+    }
+})
+.catch(error => {
+    console.error('Error adding to cart:', error);
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'There was an error adding the product to your cart.'
+    });
+});
+}
+
+
+
+
+
+                </script>
+                
 
 
     </body>

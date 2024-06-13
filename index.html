@@ -11,7 +11,7 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   <meta name="description" content="">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="css/spapp.css">
@@ -23,6 +23,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="css/spapp.css" rel="stylesheet" />
   <script src="js/modernizr.js"></script>
+
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -121,7 +122,7 @@
 <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
   <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#home">
+      <a class="navbar-brand" href="#homee">
         <img src="images/main-logo.png" class="logo" style="width:100px">
       </a>
       <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
@@ -130,72 +131,76 @@
           <use xlink:href="#navbar-icon"></use>
         </svg>
       </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-        <div class="offcanvas-header px-4 pb-0">
-          <a class="navbar-brand" href="#home">
-            <img src="images/main-logo.png" class="logo">
-          </a>
-          <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
-            data-bs-target="#bdNavbar"></button>
-        </div>
-        <div class="offcanvas-body">
-          
-          <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link me-4 active" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link me-4" href="#phones">Phones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link me-4" href="#accessories">Accessories</a>
-            </li>
-            <li>
-              <a href="contact.html" class="dropdown-item">Contact</a>
-            </li>
+      <div class="offcanvas offcanvas-end" tabindex="-1"
+      id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <a class="navbar-brand" href="#home">
+          <img src="images/main-logo.png" class="logo">
+        </a>
+        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+      </div>
+      <div class="offcanvas-body">
+        
+        <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link me-4" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-4" href="#phones">Phones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-4" href="#accessories">Accessories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-4" href="#products">All Products</a>
+          </li>
 
-            <li class="nav-item">
-              <div class="user-items ps-5">
-                <ul class="d-flex justify-content-end list-unstyled">
-                  <li class="search-item pe-3">
-                    <a href="#" class="search-button">
-                      <svg class="search">
-                        <use xlink:href="#search"></use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="pe-3">
-                    <a href="#login">
-                      <svg class="user">
-                        <use xlink:href="#user"></use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#cart">
-                      <svg class="cart">
-                        <use xlink:href="#cart"></use>
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-
-              </div>
-            </li>
-          </ul>
-        </div>
+          <li class="nav-item">
+            <div class="user-items ps-5">
+              <ul class="d-flex justify-content-end list-unstyled">
+                <li class="search-item pe-3">
+                  <a href="#" class="search-button">
+                    <svg class="search">
+                      <use xlink:href="#search"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li id="user-nav-item" class="pe-3">
+                  <!-- This will be replaced by JavaScript if the user is logged in -->
+                  <a href="#login">
+                    <svg class="user">
+                      <use xlink:href="#user"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#korpa">
+                    <svg class="cart">
+                      <use xlink:href="#cart"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-  </nav>
-
+  </div>
+</nav>
 </header>
 
+
 <main id="spapp" role="main">
+  <section id="korpa" data-load="cart.html"></section>
   <section id="phones" data-load="phones.html"></section>
   <section id="accessories" data-load="accessories.html"></section>
   <section id="home" data-load="home.html"></section>
+  <section id="homee" data-load="home.html"></section>
+  <section id="products" data-load="products.html"></section>
+
+
   <section id="login" data-load="login.html"></section>
-  <section id="cart" data-load="cart.html"></section>
   <section id="register" data-load="register.html"></section>
 
 </main>
@@ -301,7 +306,11 @@
   </div>
   <hr>
 </footer>
+<script src="js/showlogout.js"></script>
 <script src="js/jquery-1.11.0.min.js"></script>
+<script src="utils/rest_client.js"></script>
+<script src="utils/utils.js"></script>
+<script src="utils/constants.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
@@ -309,9 +318,18 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script src="js/jquery.spapp.min.js"></script>
 <script src="js/registerform.js"></script>
+<script src="js/login.js"></script>
+<script src="utils/rest_client.js"></script>
+<script src="js/cart.js"></script>
+<script type="text/javascript" src="ajax/product.js"></script>
 <script type="text/javascript" src="ajax/phonesinfo.js"></script>
 
-<script type="text/javascript" src="ajax/product.js"></script>
+<!-- <script src="js/rest_client.js"></script> -->
+<!-- <script src="js/utils.js"></script> -->
+<!-- <script src="js/constants.js"></script> -->
+<!-- <script src="js/form-validate.js"></script> -->
+<!-- <script src="js/login.js"></script> -->
+
 
 <script>
   var app = $.spapp({
@@ -321,7 +339,6 @@
       // Scroll to the top when a new page is loaded
       window.scrollTo(0, 0);
 
-      // Hide all sections except the current one
     }
   });
 

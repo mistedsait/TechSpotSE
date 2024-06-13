@@ -1,2 +1,0 @@
-Napraviti spapp,
-za ajax napraviti item added to cart i reviews

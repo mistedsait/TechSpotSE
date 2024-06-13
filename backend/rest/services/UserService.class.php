@@ -11,6 +11,7 @@ class UserService {
     }
 
     public function add_user($users){
+        $users['password']=password_hash($users['password'], PASSWORD_BCRYPT);
         return $this->user_dao->add_user($users);
     }
 
@@ -28,4 +29,3 @@ class UserService {
         return $this->user_dao->delete_user($user_id);
     }
 }
-echo __DIR__ . "/dao/UserDao.class.php";

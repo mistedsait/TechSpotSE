@@ -5,16 +5,25 @@ require_once __DIR__ . '/../services/UserService.class.php';
 
 
 /**
-     * @OA\Get(
-     *      path="/users",
-     *      tags={"users"},
-     *      summary="Get all users",
-     *      @OA\Response(
-     *           response=200,
-     *           description="Array of all users in the databases"
-     *      )
-     * )
-     */
+ * @OA\Get(
+ *      path="/users",
+ *      tags={"users"},
+ *      summary="Get all users",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
+ *      @OA\Response(
+ *           response=200,
+ *           description="Array of all users in the database",
+ *           
+ *      ),
+ *      @OA\Response(
+ *           response=401,
+ *           description="Unauthorized"
+ *      )
+ * )
+ */
+
 Flight::route('GET /users', function(){
     $user_service = new UserService();
     
@@ -34,6 +43,9 @@ Flight::route('GET /users', function(){
      * @OA\Get(
      *      path="/user/{id}",
      *      tags={"users"},
+     *      security={
+     *          {"ApiKey": {}}
+     *      },
      *      summary="Get user by ID",
      *      @OA\Response(
      *           response=200,
@@ -63,6 +75,9 @@ Flight::route('GET /user/@id:[0-9]+', function($id){
  *      path="/users/add",
  *      tags={"users"},
  *      summary="Add user",
+ *      security={
+ *          {"ApiKey": {}}
+ *      },
  *      @OA\Response(
  *           response=200,
  *           description="Add user (registration)"
@@ -104,6 +119,9 @@ Flight::route('POST /users/add', function(){
      *      path="/user/delete/{user_id}",
      *      tags={"users"},
      *      summary="Delete user by id",
+     *      security={
+     *          {"ApiKey": {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Status message"
@@ -134,4 +152,4 @@ Flight::route('DELETE /user/delete/@id:[0-9]+', function($user_id){
 });
 
 
-Flight::start();
+
