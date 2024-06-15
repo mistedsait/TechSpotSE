@@ -5,26 +5,11 @@
     
         "account":{
             "username":"test99test",
-            "email": "logintest555@gmail.com",
-            "password":"capcarap@12",
-            "profilename":"Mire",
-            "newpass":"123456789"
-        },
+            "email": "logintest@gmail.com",
+            "password":"capcarap@12"
+            },
         "verification_message": {
-            "registartion_message": "Uspjeh!",
-            "nema_rezultata":"Nema rezultata"
-            
-        },
-
-        "searchquery":{
-            "cr7": "Cristiano Ronaldo",
-            "revelance": "Cristiano Ronaldo je novogodišnju noć proveo u rodnoj Madieri u društvu svojih najdražih osoba. S njim su bili partnerica Georgina Rodriguez, zatim brat, sestra i majka te još nekoliko osoba. ",
-            "failedQuery":"asdasd"
-
-        },
-
-        "comment":{
-            "normal":"Normalan komentar"
+            "login_message": "You have been successfully logged in."          
         }
 
         

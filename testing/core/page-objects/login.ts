@@ -14,7 +14,7 @@ export class SportLogin2 extends BasePage {
     private email_login_field=By.id("email")
     private pass_login_field=By.id("password")
     private prijava_btn=By.xpath("//form[@id='loginForm']//button[@type='submit']")
-    private dropdownicon=By.id("userDropdown")
+    private loginmsg=By.id("swal2-html-container")
     constructor(driver: WebDriver) {
         super(driver);
     }
@@ -32,9 +32,9 @@ export class SportLogin2 extends BasePage {
     async clickPrijava(){
         await this.findElementAndClick(this.prijava_btn)
     }
-
-    async checkDropdown(){
-        await this.findElement(this.dropdownicon)
+    
+    async checkSuccessfullLogin(){
+        await this.checkMatchingElements(this.loginmsg,testData.verification_message.login_message)
     }
     
 }

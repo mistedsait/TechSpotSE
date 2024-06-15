@@ -22,7 +22,7 @@ test("user login", async () => {
     await loginPage.fillEmailLogin();
     await loginPage.fillPasswordLogin();
     await loginPage.clickPrijava();
-    await loginPage.checkDropdown();
+    await loginPage.checkSuccessfullLogin();
     
 },100000);
 
