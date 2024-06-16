@@ -4,12 +4,19 @@
     },
     
         "account":{
-            "username":"test99test",
-            "email": "logintest@gmail.com",
+            "first_name":"Test",
+            "last_name":"Again",
+            "username":"test9test",
+            "email": "logintest67@gmail.com",
             "password":"capcarap@12"
             },
         "verification_message": {
-            "login_message": "You have been successfully logged in."          
+            "login_message": "You have been successfully logged in.",
+            "register_message": "Registration successful!"
+        },
+
+        "products": {
+            "product_name": "Iphone 15"
         }
 
         

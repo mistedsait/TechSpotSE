@@ -22,7 +22,7 @@ export class SportLogin2 extends BasePage {
     async clickOnLogin(){
         await this.waitAndClick(this.loginbtn,50000)
     }
-
+   
     async fillEmailLogin(){
         await this.fillInputField(this.email_login_field,testData.account.email)
     }

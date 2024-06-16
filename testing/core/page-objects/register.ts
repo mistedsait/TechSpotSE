@@ -10,14 +10,14 @@ const testData = JSON.parse(readFileSync(dataFilePath, "utf8"));
 
 
 export class Register extends BasePage {
+        private first_name=By.id("firstname")
+        private last_name=By.id("lastname")
         private registerbtn = By.xpath("//a[@href='#register']");
-        private email_register_field=By.id("email")
-        private pass_register_field=By.id("password")
-        private pass_repeat_field = By.id("password-repeat");
-
-        private register_btn = By.xpath("//form[@id='register-form']//button[@type='submit']");
+        private email_register_field=By.xpath("//form[@id='register-form']//input[@id='email']")
+        private pass_register_field=By.xpath("//form[@id='register-form']//input[@id='password']")
+        private register_btn = By.xpath("//form[@id='register-form']//button[@class='btn btn-primary btn-block mb-4']");
         
-        private registermsg=By.id("swal2-html-container")
+        private registermsg=By.xpath("//div[@id='swal2-html-container']")
         
         constructor(driver: WebDriver) {
             super(driver);
@@ -26,7 +26,12 @@ export class Register extends BasePage {
         async clickOnRegister(){
             await this.waitAndClick(this.registerbtn,50000)
         }
-    
+        async fillFirstName(){
+            await this.fillInputField(this.first_name,testData.account.first_name)
+        }
+        async fillLastName(){
+            await this.fillInputField(this.last_name,testData.account.last_name)
+        }
         async fillEmailRegister(){
             await this.fillInputField(this.email_register_field,testData.account.email)
         }

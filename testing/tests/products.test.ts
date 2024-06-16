@@ -19,6 +19,11 @@ beforeAll(async () => {
 
 test("View All Products", async () => {
     await productsPage.selectAllProducts();
+    await driver.navigate().refresh();
+    await productsPage.selectOption();
+    await productsPage.delay();
+
+    await productsPage.checkIfLoaded();
 
 }, 100000);
 
